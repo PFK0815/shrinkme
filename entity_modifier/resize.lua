@@ -9,8 +9,8 @@ entity_modifier.resize_player = function(player, size)
 		return
 	end
 
-	local default_properties =
-		player:get_properties()
+	--local default_properties =
+	--	player:get_properties()
 
 	if size == 1 then
 		player:set_eye_offset(
@@ -54,17 +54,17 @@ entity_modifier.resize_player = function(player, size)
 	local new_properties = default_properties
 
 	-- corner positions: (x,y,z), (x,y,z)
-	if default_properties.collisionbox then
-		for i, v in ipairs(default_properties.collisionbox) do
-			new_properties.collisionbox[i] = v * size
-		end
-	end
+	--if default_properties.collisionbox then
+	--	for i, v in ipairs(default_properties.collisionbox) do
+	--		new_properties.collisionbox[i] = v * size
+	--	end
+	--end
 
-	if default_properties.selectionbox then
-		for i, v in ipairs(default_properties.selectionbox) do
-			new_properties.selectionbox[i] = v * size
-		end
-	end
+	--if default_properties.selectionbox then
+	--	for i, v in ipairs(default_properties.selectionbox) do
+	--		new_properties.selectionbox[i] = v * size
+	--	end
+	--end
 	--if default_properties.eye_height then
 	--	new_properties.eye_height = default_properties.eye_height * size
 	--end
