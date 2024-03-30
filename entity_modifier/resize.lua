@@ -9,6 +9,9 @@ entity_modifier.resize_player = function(player, size)
 		return
 	end
 
+	local default_properties =
+		player_api.registered_models[player:get_properties().mesh]
+
 	if size == 1 then
 		player:set_eye_offset(
 			{x=0, y=0, z=0},
@@ -50,6 +53,21 @@ entity_modifier.resize_player = function(player, size)
 
 	local new_properties = {}
 
+	-- corner positions: (x,y,z), (x,y,z)
+	if default_properties.collisionbox then
+		for i, v in ipairs(default_properties.collisionbox) do
+			default_properties.collisionbox[i] = v * size
+		end
+	end
+
+	if default_properties.selectionbox then
+		for i, v in ipairs(default_properties.selectionbox) do
+			default_properties.selectionbox[i] = v * size
+		end
+	end
+	if default_properties.eye_height then
+		new_properties.eye_height = default_properties.eye_height * size
+	end
 	new_properties.visual_size = {x=size, y=size}
 
 	if playerphysicsMOD then
