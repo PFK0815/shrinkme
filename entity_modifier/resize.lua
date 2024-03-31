@@ -51,8 +51,9 @@ entity_modifier.resize_player = function(player, size)
 		)
 	end
 
-	local new_properties = default_properties
+	local new_properties = {}
 
+	-- Won't work with mineclone2.
 	-- corner positions: (x,y,z), (x,y,z)
 	--if default_properties.collisionbox then
 	--	for i, v in ipairs(default_properties.collisionbox) do

@@ -6,13 +6,9 @@ local function size(player, param)
 end
 
 minetest.register_on_joinplayer(function(player)
-    if DEFAULTeye_height == nil or DEFAULTSpeed == nil then
-        DEFAULTeye_height = player:get_physics_override().eye_height
-        DEFAULTSpeed = player:get_physics_override().speed
-    end
     sizes[player:get_player_name()] = 1
     if mcl_core then
-        playerphysics.add_physics_factor(player, "speed", "shrinkme:speed", DEFAULTSpeed)
+        playerphysics.add_physics_factor(player, "speed", "shrinkme:speed", 1)
     end
 end)
 
